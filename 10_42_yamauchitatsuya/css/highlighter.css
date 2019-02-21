@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+/* ▼対象文章枠の装飾（任意） */
+#targetspace {
+    border: 3px solid #2D2E83;  /* 枠線 */
+    border-radius: 0.67em;   /* 角丸 */
+    padding: 2em;          /* 内側余白 */
+    width: 100%;             /* 横幅 */
+    box-sizing: border-box;  /* はみ出しを防ぐ対策 */
+    background-color: #fff;  /* 背景色 */
+    line-height: 1.6;        /* 行の高さ */
+}
+/* ▼ハイライトON/OFFボタン枠の装飾（任意） */
+.controlpanel {
+    margin: 1em 0;           /* 外側余白 */
+    padding: 1em;            /* 内側余白 */
+    background-color: #eee;  /* 背景色 */
+    font-weight: bold;
+    position: -webkit-sticky; /* Safari用 */
+    position:sticky; /* 要素をスクロールに応じて固定 */
+    top:0; /* 縦スクロールに追従 */
+    z-index: 100; /* z-indexで最前面に持ってくる */
+}
+
+label {
+    font-weight: bold;
+    background-color: #2D2E83;
+    color: #eee
+}
+
+/* ▼ハイライト部分の装飾 */
+.nest1 { background: linear-gradient(transparent 60%, #FFFF77 60%);}
+.nest2 { background: linear-gradient(transparent 60%, #93FFAB 60%);}  
+.nest3 { background: linear-gradient(transparent 60%, #AAFFFF 60%);}    
+.nest4 { background: linear-gradient(transparent 60%, #FFBBFF 60%)}  
+.mark1 { background: linear-gradient(transparent 60%, #FF97C2 60%)}
+/* span.mark4 { background: linear-gradient(transparent 60%, #2D2E83 60%); }   */

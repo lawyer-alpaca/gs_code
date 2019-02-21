@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SmartRoppo</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.3/dist/instantsearch.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="icon" type="image/x-icon" href="image/icon_only.png">
+</head>
+<body>
+    <!-- ここからメニューボタン -->
+    <button type="button" class="menu-btn">
+        <span class="bar bar1"></span>
+        <span class="bar bar2"></span>
+        <span class="bar bar3"></span>
+    </button>
+    <!-- ここまでメニューボタン -->
+
+    <!-- ここからトップ＋検索画面 -->
+    <div class="top-logo"><img class="top-logo-img" src="image/icon_title_slogan.png"></div>
+    <div class="search-form">
+        <input id="search-input" class="law-name" name="法令名" placeholder="法令名を入力" required="required" type="text" autocomplete="off">
+        <!-- <button class="button" id="button" type="submit"><p class="text">検  索</p></button> -->
+    </div>
+
+    <!-- firebaseとalgoliaを用いた検索結果のリアルアイム表示 -->
+    <main>
+        <div id="hits"></div>
+        <div id="pagination"></div>
+
+        <script type="text/html" id="hit-template">
+          <div class="hit">
+            <div class="hit-content">
+              <h2 class="hit-name"><a href='res.html?idd={{{objectID}}}'>{{{_highlightResult.LawName.value}}}</a></h2> <!-- データベースのobjectIDを主キーのように使ってデータを指定しています。-->
+              <!-- <p class="hit-description">{{{_highlightResult.LawNo.value}}}</p> -->
+            </div>
+          </div>
+        </script>
+
+
+    <!-- ↓ 本当は検索した任意の法令を表示するようにしたいが、とりあえず今回は金商法のみAPIから取得してみる -->
+    <!-- <button class="kinshouhou"><a href="index_2.html">金 融 商 品 取 引 法</a></button> -->
+
+    <!-- ↓ 課題のメモアプリを無理矢理実装 -->
+    <!-- <button class="memopad"><a href="memopad/index2.html">とりあえずメモしてみる</a></button> -->
+
+    <!-- ここまでトップ＋検索画面 -->
+
+    <!-- ここからメニューモーダル -->
+    <nav class="drawer-nav" role="navigation">
+        <ul class="drawer-menu">
+            <li><a class="drawer-menu-item" href="">トップ</a></li>
+            <li><a class="drawer-menu-item" href="">ご利用方法</a></li>
+            <li><a class="drawer-menu-item" href="">新規登録</a></li>
+            <li><a class="drawer-menu-item" href="">ログイン</a></li>
+            <li><a class="drawer-menu-item" href="">設定</a></li>
+            <li><a class="drawer-menu-item" href="">利用規約</a></li>
+            <li><a class="drawer-menu-item" href="#">お問い合わせ</a></li>
+            <li><a class="drawer-menu-item" href="index_2.html">金融商品取引法</a></li>
+            <li><a class="drawer-menu-item" href="memopad/index2.html">メモパッド</a></li>
+        </ul>
+    </nav>
+    <!-- ここまでメニューモーダル -->
+
+    <!-- ここから問い合わせチャット（今回の課題） -->
+    <!-- <div class="chat-icon"><button type="button" class="chat-icon-button" id="chat-icon-button"><img class="chat-icon-img" src="image/chat_icon.jpeg"></button></div>
+    <div id="chat-wrapper">
+        <div class="chat-window">
+            <div id="output"></div>
+            <div class="chat-info">SmartRoppoの導入・サポートを全力で支援します！何でも聞いてください！！</div>
+            <div>
+                <textarea name="" id="text" cols="30" rows="4"></textarea>
+                <button id="send">送信</button>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- ここまで問い合わせチャット -->
+   
+
+     <!-- ここからJavaScript -->
+     <script src="js/jquery-3.3.1.min.js"></script>
+     <script src="js/script.js"></script>
+     <script src="js/jquery.xdomainajax.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+     <!-- <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+     <script>
+     // Initialize Firebase
+     var config = {
+         apiKey: "AIzaSyDwgOeRXdKuwLEFj3x-avv9-hD3swxdNa0",
+         authDomain: "dev12-1a92a.firebaseapp.com",
+         databaseURL: "https://dev12-1a92a.firebaseio.com",
+         projectId: "dev12-1a92a",
+         storageBucket: "dev12-1a92a.appspot.com",
+         messagingSenderId: "38406871185"
+     };
+     firebase.initializeApp(config);
+     var newPostRef = firebase.database().ref();
+     // メッセージ送信用関数
+        function msgPush(){
+            newPostRef.push({
+                text: $("#text").val(),
+            });
+            $("#text").val("");
+            $("#output").scrollTop($("#output")[0].scrollHeight);
+        }
+
+        //  Enterで送信
+        $("#text").on("keydown", function(e){
+            if(e.keyCode==13){
+                msgPush();
+            }
+        })
+
+        newPostRef.on("child_added", function(data){
+            let v = data.val();  // データ取得
+            let k = data.key;  // ユニークキー取得（今日は使わない）
+            console.log(v);
+            // タイムラインメッセージ作成
+            let str = '<p class="question">' + v.text+ '</p>';
+            let clear = '<div class="clear"></div>'; // メッセージの回りこみを防止
+            let reply = '<p class="answer">' + 'お問合せありがとうございます！<br>すぐに担当者から回答いたしますので、少々お待ちください。' + '</P>';
+            $("#output").append(str + clear + reply + clear);
+        });
+    </script> -->
+    <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.3/dist/instantsearch.min.js"></script>
+    <script src="js/app.js"></script>
+ </body>
+</html>

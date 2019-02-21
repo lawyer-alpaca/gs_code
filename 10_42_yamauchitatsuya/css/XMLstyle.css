@@ -1,0 +1,576 @@
+@charset "UTF-8";
+
+* {
+    font-family: -apple-system, blinkMacSystemFont, /* Macの欧文はSan Francisco (OS X 10.11以降) */
+    'Helvetica Neue',            /* Macの欧文 (OS X 10.10以前) */
+    'Segoe UI',                  /* Windowsの欧文 */
+    'Hiragino Kaku Gothic ProN', /* Macのヒラギノ */
+    Meiryo,                      /* Windowsのメイリオ */
+    sans-serif;
+    text-align:left;
+    line-height:150%;
+}
+
+ArticleTitle::before,
+ParagraphNum::before,
+ItemTitle::before,
+Subitem1Title::before,
+Subitem2Title::before
+ {
+    content: "\A" ;
+    white-space: pre ;
+}
+
+LawTitle,
+TOCLabel,
+ChapterTitle,
+SectionTitle,
+SubsectionTitle,
+DivisionTitle,
+SupplProvisionLabel {
+    display: block;  
+}
+
+ArticleRange {
+    display: none;
+}
+
+/* LawTitle::after,
+TOCLabel::after,
+ChapterTitle::after,
+SectionTitle::after,
+SubsectionTitle::after,
+DivisionTitle::after,
+SupplProvisionLabel::after{
+    float: left;;
+} */
+
+
+/*横書き用 条文スタイル*/
+LawBody {
+	/* text-align:left;
+	line-height:150%;
+    margin:2em; */
+}
+
+PromulgateBody {
+	text-indent:1em;
+}
+
+ImperialSignature {
+	margin-left:1em;
+}
+
+PromulgateDate {
+	margin-left:2em;
+}
+
+LawTitle {
+	/* margin-left:3em; */
+}
+
+LawNum {
+}
+
+LawTitle_text {
+/*	font-size:14pt;*/
+}
+
+EnactStatement {
+	text-indent:1em;
+}
+
+TOC {
+}
+
+TOCLabel {
+    font-weight: bold;
+}
+
+TOCPreambleLabel {
+	margin-left:1em;
+}
+
+TOCPartTitle {
+	margin-left:1em;
+}
+
+TOCChapterTitle {
+    margin-left:1em;
+}
+
+TOCSectionTitle {
+	margin-left:2em;
+}
+
+TOCSubsectionTitle {
+	margin-left:3em;
+}
+
+TOCDivisionTitle {
+	margin-left:4em;
+}
+
+TOCPart .TOCChapterTitle {
+	margin-left:2em;
+}
+
+TOCPart .TOCSectionTitle {
+	margin-left:3em;
+}
+
+TOCPart .TOCSubsectionTitle {
+	margin-left:4em;
+}
+
+TOCPart .TOCDivisionTitle {
+	margin-left:5em;
+}
+
+TOCSupplProvisionLabel {
+	margin-left:1em;
+}
+
+PartTitle {
+	margin-left:2em;
+}
+
+ChapterTitle {
+    margin-left:0em;
+}
+
+SectionTitle {
+	margin-left:4em;
+}
+
+SubsectionTitle {
+	margin-left:5em;
+}
+
+DivisionTitle {
+	margin-left:6em;
+}
+
+Article {
+}
+
+ArticleCaption {
+	margin-left:1em;
+}
+
+Preamble {
+	margin-bottom:1em;
+}
+
+Paragraph {
+	margin-left:0;
+}
+
+Item {
+	margin-left:1em;
+}
+
+Item_noi {
+	margin-left:0;
+}
+
+Subitem1,
+Subitem2,
+Subitem3,
+Subitem4,
+Subitem5,
+Subitem6,
+Subitem7,
+Subitem8,
+Subitem9,
+Subitem10 {
+	margin-left:1em;
+}
+
+TableColumn > Subitem2,
+NewProvision > Subitem2 {
+	margin-left:2em;
+}
+
+TableColumn > Subitem3,
+NewProvision > Subitem3 {
+	margin-left:3em;
+}
+TableColumn > Subitem4,
+NewProvision > Subitem4 {
+	margin-left:4em;
+}
+TableColumn > Subitem5,
+NewProvision > Subitem5 {
+	margin-left:5em;
+}
+TableColumn > Subitem6,
+NewProvision > Subitem6 {
+	margin-left:6em;
+}
+TableColumn > Subitem7,
+NewProvision > Subitem7 {
+	margin-left:7em;
+}
+TableColumn > Subitem8,
+NewProvision > Subitem8 {
+	margin-left:8em;
+}
+TableColumn > Subitem9,
+NewProvision > Subitem9 {
+	margin-left:9em;
+}
+TableColumn > Subitem10,
+NewProvision > Subitem10 {
+	margin-left:10em;
+}
+
+List {
+	margin-left:2em;
+}
+
+QuoteStruct > List {
+	text-indent:0;
+	margin-left:0;
+}
+
+Sublist1 {
+	margin-left:1em;
+}
+
+Sublist2 {
+	margin-left:1em;
+}
+
+Sublist3 {
+	margin-left:1em;
+}
+
+ParagraphCaption {
+	margin-left:1em;
+}
+
+ParagraphSentence {
+	margin-left:1em;
+	text-indent:-1em;
+}
+
+ParagraphSentence_old {
+	margin-left:1em;
+	text-indent:-1em;
+}
+
+ParagraphSentence_noi {
+	margin-left:0em;
+	text-indent:1em;
+}
+
+ParagraphSentence_noi_old {
+	margin-left:0em;
+	text-indent:0em;
+}
+
+td ParagraphSentence_noi {
+	margin-left:0em;
+	text-indent:0em;
+}
+
+AmendProvisionSentence {
+	text-indent:1em;
+}
+
+ItemSentence {
+	margin-left:1em;
+	text-indent:-1em;
+}
+
+ItemSentence2 {
+	margin-left:1em;
+}
+
+Subitem1Sentence {
+	margin-left:1em;
+	text-indent:-1em;
+}
+
+Subitem1Sentence2 {
+	margin-left:1em;
+}
+
+Subitem2Sentence {
+	margin-left:1em;
+	text-indent:-1em;
+}
+
+Subitem2Sentence2 {
+	margin-left:1em;
+}
+
+Subitem3Sentence {
+	margin-left:1em;
+	text-indent:-1em;
+}
+
+Subitem3Sentence2 {
+	margin-left:1em;
+}
+
+SupplProvisionLabel {
+	margin-left:3em;
+}
+
+Remarks {
+	margin-left:2em;
+	text-indent:-1em;
+}
+
+TableColumn Remarks {
+	margin-left:1em;
+	text-indent:-1em;
+}
+
+FigStructTitle {
+	margin-left:1em;
+}
+
+NoteStructTitle {
+	margin-left:1em;
+}
+
+StyleStructTitle {
+	margin-left:1em;
+}
+
+FormatStructTitle {
+	margin-left:1em;
+}
+
+Fig {
+	margin-left:1em;
+}
+
+Note {
+	margin-left:1em;
+}
+
+Style {
+	margin-left:1em;
+}
+
+Format {
+	margin-left:1em;
+}
+
+AppdxTable {
+	margin-top:1em;
+}
+
+AppdxTableTitle {
+	margin-left:1em;
+	text-indent:-1em;
+}
+
+AppdxNote {
+	margin-top:1em;
+}
+
+AppdxStyle {
+	margin-top:1em;
+}
+
+AppdxFig {
+	margin-top:1em;
+}
+
+AppdxFormat {
+	margin-top:1em;
+}
+
+SupplProvisionAppdxTableTitle {
+	margin-left:1em;
+	text-indent:-1em;
+}
+
+TableStructTitle {
+	margin-left:1em;
+}
+
+Table {
+	margin-left:1em;
+}
+
+AmendProvision {
+/*	padding:1em;
+	border:1pt solid #999999;
+	background-color:#EEEEEE;*/
+}
+
+Signature {
+	text-align:right;
+}
+
+LawBody table {
+	border-collapse:collapse;
+}
+
+td TableColumn {
+	padding:3pt 5pt 3pt 5pt;
+	line-height:150%;
+}
+
+TableColumn Sentence {
+	text-indent:0;
+	start-indent:0;
+}
+
+border_top_1, border_top_solid {
+	border-top:1pt solid #666666;
+}
+
+border_top_0, border_top_none {
+	border-top:0pt solid #666666;
+}
+
+border_top_dotted {
+	border-top:1pt dotted #666666;
+}
+
+border_top_double {
+	border-top:3px double #666666;
+}
+
+border_right_1, border_right_solid {
+	border-right:1pt solid #666666;
+}
+
+border_right_0, border_right_none {
+	border-right:0pt solid #666666;
+}
+
+border_right_dotted {
+	border-right:1pt dotted #666666;
+}
+
+border_right_double {
+	border-right:3px double #666666;
+}
+
+border_bottom_1, border_bottom_solid {
+	border-bottom:1pt solid #666666;
+}
+
+border_bottom_0, border_bottom_none {
+	border-bottom:0pt solid #666666;
+}
+
+border_bottom_dotted {
+	border-bottom:1pt dotted #666666;
+}
+
+border_bottom_double {
+	border-bottom:3px double #666666;
+}
+
+border_left_1, border_left_solid {
+	border-left:1pt solid #666666;
+}
+
+border_left_0, border_left_none {
+	border-left:0pt solid #666666;
+}
+
+border_left_dotted {
+	border-left:1pt dotted #666666;
+}
+
+border_left_double {
+	border-left:3px double #666666;
+}
+
+line-break {
+	text-align:right;
+}
+
+Unknown {
+	color:red;
+}
+
+Quote TableStruct {
+	margin-left:0;
+	text-indent:0;
+}
+
+TOCChapterTitleNum
+{
+	line-height:1.5em;
+	margin-right:1em;
+}
+
+TOCChapterTitleBody
+{
+	line-height:1.5em;
+}
+
+SupplNote
+{
+	margin-left:2em;
+}
+
+Hide
+{
+	display:none;
+}
+
+QuoteStruct
+{
+	vertical-align:middle;
+	display:inline-block;
+}
+
+LawNum,
+LawTitle,
+PartTitle,
+ChapterTitle,
+SectionTitle,
+SubsectionTitle,
+DivisionTitle,
+ArticleTitle,
+ParagraphNum,
+ItemTitle,
+Subitem1Title,
+Subitem2Title,
+Subitem3Title,
+Subitem4Title,
+Subitem5Title,
+Subitem6Title,
+Subitem7Title,
+Subitem8Title,
+Subitem9Title,
+Subitem10Title,
+SupplProvisionLabel,
+AppdxTableTitle,
+AppdxStyleTitle,
+AppdxFigTitle,
+AppdxFormatTitle,
+AppdxNoteTitle,
+ArithFormulaNum,
+SupplProvisionAppdxStyleTitle,
+SupplProvisionAppdxTableTitle {
+	font-weight:bold;
+}
+
+Sentence {
+    font-weight: normal;
+}
+
+ArticleCaption {
+    font-weight: bold;
+}
+
+SectionTitle {
+    margin-left:2em;
+}
+
+TOC {
+	display: none;
+}

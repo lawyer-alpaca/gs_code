@@ -1,0 +1,313 @@
+@charset "UTF-8";
+
+/* ここからトップページ */
+
+/* ボタンタグ設定 */
+.menu-btn {
+    display: block;
+    background: none;
+    border: none;
+    padding: 0;
+    width: 35px;
+    color: #2D2E83;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    left: 30px;
+    z-index: 1001;
+    text-align: center;
+    outline: none;
+  }
+
+
+  /* ハンバーガーボタン3本線 */
+  button span.bar {
+    display: block;
+    height: 3px;
+    background-color: #2D2E83;
+    margin: 8px 0;
+    transition: all 0.2s;
+    transform-origin: 0 0;
+  }
+
+  /* メニューアクティブ時（保留）
+
+  button:active span.bar {
+    width: 35px;
+  }
+  
+  button:active .bar1 {
+    transform: rotate(36deg);
+  }
+  button:active .bar2 {
+    opacity: 0;
+  }
+  button:active .bar3 {
+    transform: rotate(-36deg);
+  }
+
+ */
+
+
+
+.top-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 125px;
+    margin-bottom: 50px;
+}
+
+.top-logo-img{
+    width: 662px;
+    height: 162px;
+}
+
+.search-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.law-name{
+    height: 40px;
+    width: 300px;
+}
+
+input{
+    font-size: 15px;
+    font-family: "Muli";
+    font-weight: 300;
+    padding-left: 16px;
+    margin-bottom: 35px;
+}
+
+input::placeholder{
+    color: #AEAEAE;
+    font-size: 15px;
+    font-family: "Muli";
+    font-weight: 300;
+    vertical-align: center;
+}
+
+.search-form > button{
+    background-color: #2D2E83;
+    border-color: #2D2E83;
+    color: #FFFFFF;
+    height: 46px;
+    width: 100px;
+    font-size: 15px;
+    font-family: "Muli";
+    font-weight: 300;
+    box-shadow: none;
+    margin-bottom: 35px;
+}
+
+.button:hover{
+    background-color: #1D71B8;
+    border-color: #1D71B8;
+}
+
+.kinshouhou{
+    display: block;
+    background-color: #2D2E83;
+    border-color: #2D2E83;
+    color: #FFFFFF;
+    height: 46px;
+    width: 422px; 
+    text-align: center;
+    margin: auto;
+    margin-bottom: 35px;
+}
+
+.kinshouhou > a {
+    color: #FFFFFF;
+    font-size: 15px;
+    font-family: "Muli";
+    font-weight: 300;
+    vertical-align: middle;
+} 
+
+.memopad{
+    display: block;
+    background-color: #2D2E83;
+    border-color: #2D2E83;
+    color: #FFFFFF;
+    height: 46px;
+    width: 422px; 
+    text-align: center;
+    margin: auto;
+    margin-bottom: 35px;
+}
+
+.memopad > a {
+    color: #FFFFFF;
+    font-size: 15px;
+    font-family: "Muli";
+    font-weight: 300;
+    vertical-align: middle;
+}
+
+/* ここまでトップページ */
+
+/* ここからメニューモーダル */
+
+nav{
+    width: 250px;
+    height: 100%;
+    transition: all 0.2s;
+    transform: translate(-250px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: rgb(45,46,131,0.5);
+    padding-top: 130px;
+}
+
+nav.open{
+    transform: translate(0); 
+}
+
+.drawer-menu-item{
+    margin-left: 50px;
+    color: #FFFFFf;
+    font-size: 15px;
+    font-family: "Muli";
+    font-weight: 300;
+    line-height: 50px;
+}
+
+/* ここまでメニューモーダル */
+
+
+/* ここから問い合わせチャット（今回の課題） */
+.chat-icon-img {
+    height: 45px;
+    width: 45px
+}
+
+.chat-icon {
+    text-align: right;
+    margin-top: 30px;
+    margin-right: 10%;
+}
+
+.chat-icon-button {
+    background-color: #EEEEEE;
+    border: none;
+    color :#EEEEEE;
+    cursor: pointer;
+}
+
+
+#chat-wrapper{
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 10%;
+    width: 100%;
+    height: 100vh;
+    border-radius: 15px;
+    width: 30%;
+    height: 500px;
+}
+
+.modal-bgcolor{
+    background-color: rgba(128, 128, 128);
+}
+
+#output{
+    height: 400px;
+    overflow: auto;
+    width: 100%;
+    background-color: #EEEEEE;
+    border-radius: 15px;
+}
+
+.question {
+    overflow: auto;/* スクロールを効かせつつ、メッセージがタイムラインの外に出ないようにする */
+    height: 100% border-box;/*テキストエリアが下に張り付く様にする*/
+    vertical-align: middle;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    background-color: #eee;
+    box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.2) inset;/*ヘッダーの下に影を入れる*/
+    margin-top: 10px;
+    margin-left: 5px;
+    padding: 5px 10px;/*吹き出しがタイムラインの側面にひっつかない様に隙間を開ける*/
+    font-size: 12px;
+    word-wrap: break-word;/* 吹き出し内で自動で改行 */
+    white-space: normal;/*指定widthに合わせて、文字を自動的に改行*/
+    float: left;/*吹き出しをに対して左寄せ*/
+    line-height: 1.3em;
+
+    color: #fff;
+    background: #2D2E83;
+    border: 2px solid #2D2E83;
+    border-radius: 30px 30px 30px 0px;/*左下だけ尖らせて吹き出し感を出す*/
+    margin-right: 150px;/*左側の発言だとわかる様に、吹き出し右側に隙間を入れる*/
+} 
+
+.answer {
+    overflow: auto;
+    height: 100% border-box;
+    vertical-align: middle;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    background-color: #eee;
+    box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.2) inset;
+    margin-top: 10px;
+    margin-right: 5px;
+    padding: 5px 10px;
+    font-size: 12px;
+    word-wrap: break-word;
+    white-space: normal;
+    float: right;
+    line-height: 1.3em;
+
+    color: #2D2E83;
+    background: #fff;
+    border: 2px solid #2D2E83;
+    border-radius: 30px 30px 0px 30px;
+    margin-left: 150px;
+}
+
+.clear {
+    clear: both; /* 左メッセージと右メッセージの回り込み(float)の効果の干渉を防ぐために必要（これが無いと、自分より下のメッセージにfloatが影響する） */
+}
+
+.chat-info {
+    color: #fff;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.3em;
+}
+
+#text {
+    width: 80%;
+    border-radius: 15px
+}
+
+#send {
+    width: 15%;
+    border-radius: 15px
+}
+
+/* ここまで問い合わせチャット */
+
+/* ここからデータの取得・操作ボタン */
+
+#law-btn{
+    margin-left: 200px;
+    margin-top: 30px;
+    float: left;
+}
+
+#highlighter-btn{
+    margin-left: 30px;
+    margin-top: 30px;
+    float: left;
+}
